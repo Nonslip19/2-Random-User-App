@@ -36,3 +36,59 @@
     transform: rotate(360deg);
   }
 }
+
+.card-container{
+  width: 500px;
+  height: 330px;
+  background: linear-gradient(0deg, rgb(255, 255, 255) 76%,  rgb(212, 194, 194) 77% , rgba(234,246,244,1) 77%);
+  padding: 10px;
+  box-shadow: 0 0 5px 1px #282c3442;
+}
+
+.personImg{
+  margin-top: 8px;
+  width: 6rem;
+  border-radius: 50%;
+}
+.topInfo{
+  margin-top: 1rem;
+}
+
+.topInfo > p{
+  margin: 0;
+  color: rgba(0, 0, 0, 0.562);
+}
+
+.topInfo > span{
+  font-size: 20px;
+  color: rgba(0, 0, 0, 0.801);
+}
+
+img{
+  width: 25px;
+}
+
+.infoIcon{
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+}
+
+.infoIcon div{
+  height: 2rem;
+  width: 2rem;
+  padding: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  box-shadow:0 0 10px 1px  #282c3475;
+  cursor: pointer;
+}
+
+.buttons{
+  margin-top: 3rem;
+  display: flex;
+  justify-content: space-around;
+}
