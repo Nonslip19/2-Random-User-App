@@ -85,6 +85,13 @@ img{
   border-radius: 50%;
   box-shadow:0 0 10px 1px  #282c3475;
   cursor: pointer;
+  transition: 0.7s;
+
+}
+
+.infoIcon div:hover{
+  background-color:rgba(253,187,45,0.9);
+  transition: 0.5s;
 }
 
 .buttons{
@@ -100,4 +107,10 @@ img{
 
 thead{
   background-color: rgba(253,187,45,0.9);
+}
+
+button{
+  background-color: rgba(253,187,45,0.9);
+  border-style: none;
+  padding: 5px 10px;
 }
