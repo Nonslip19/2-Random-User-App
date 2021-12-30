@@ -3,20 +3,23 @@ import axios from 'axios';
 
 
 import phoneImg from "../assets/phone.svg";
-//import woman from "../assets/woman.svg";
+import woman from "../assets/woman.svg";
 import man from "../assets/man.svg";
 import mail from "../assets/mail.svg";
 import map from "../assets/map.svg";
 import padlock from "../assets/padlock.svg";
 import growingMan from "../assets/growing-up-man.svg";
-//import growingWoman from "../assets/growing-up-woman";
+import growingWoman from "../assets/growing-up-woman.svg";
+import Tables from './Tables';
 
-
+let addUser = [];
 const Card = () => {
 
     const api = "https://randomuser.me/api/";
     const [user, setUser] = useState([]);
-    
+    const [userTitle, setUserTitle] = useState("My Name Is");
+    const [userInfo, setUserInfo] = useState("");
+
     const userData = async() => {const dataFirst = await axios(api).then(res => (res.data.results[0]))
         .catch((err) => console.log(err));   
         console.log(dataFirst);
@@ -34,34 +37,68 @@ const Card = () => {
         setUser({
             title, first, last, age, city, country, phone, large, email, gender, password 
         });
+
+        setUserTitle("My Name Is");
+        setUserInfo(title+" "+first+" "+last);
     };
     const{title, first, last, age, city, country, phone, large, email, gender, password} = user;
-    console.log(email);
-    useEffect(() => userData(), []);
-    
-    console.log(user);        
+    console.log(title);
 
+    useEffect(() => userData(), []);
+ 
+
+   console.log(addUser);
     return (
         <div className='card-container'>
             <div>
-                <img className='personImg' src={man} alt="" />
+                <img className='personImg' src={large} alt="" />
             </div>
             <div className='topInfo'>
-                <p>{first}</p>
-                <span>{title}</span>
+                <p>{userTitle}</p>
+                <span>{userInfo}</span>
             </div>
             <div className='infoIcon'>
-                <div><img src={man} alt="" /></div>
-                <div><img src={mail} alt="" /></div>
-                <div><img src={growingMan} alt="" /></div>
-                <div><img src={map} alt="" /></div>
-                <div><img src={phoneImg} alt="" /></div>
-                <div><img src={padlock} alt="" /></div>
+                <div onMouseOver={()=>{
+                    setUserTitle("My Name Is");
+                    setUserInfo(title+" "+first+" "+last);
+                }}>
+                <img src={gender === "male" ? man : woman} alt="" /></div>
+
+                <div onMouseOver={()=>{
+                    setUserTitle("My Email Is");
+                    setUserInfo(email)
+                }}><img src={mail} alt="" /></div>
+
+                <div onMouseOver={()=>{
+                    setUserTitle("My Age Is");
+                    setUserInfo(age);
+                }}><img src={gender === "male" ? growingMan : growingWoman} alt="" /></div>
+
+                <div onMouseOver={()=>{
+                    setUserTitle("My Location Is");
+                    setUserInfo(city+" "+country);}}>
+                <img src={map} alt="" /></div>
+
+                <div onMouseOver={()=>{
+                    setUserTitle("My Phone Number Is");
+                    setUserInfo(phone);}}>
+                <img src={phoneImg} alt="" /></div>
+
+                <div onMouseOver={()=>{
+                    setUserTitle("My Password Is");
+                    setUserInfo(password);}}>
+                <img src={padlock} alt="" /></div>
             </div>
             <div className='buttons'>
-                <button>NEW USER</button>
-                <button>ADD USER</button>
-            </div>
+                <button onClick={userData}>NEW USER</button>
+                <button onClick={() => {
+                addUser = addUser.concat(user);
+                setUserTitle("My Name Is");
+                setUserInfo(title+" "+first+" "+last);
+                }}>ADD USER</button>
+            </div> <br />
+            <Tables addUser = {addUser} />
+    
         </div>
     )
 }

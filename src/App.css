@@ -39,10 +39,10 @@
 
 .card-container{
   width: 500px;
-  height: 330px;
   background: linear-gradient(0deg, rgb(255, 255, 255) 76%,  rgb(212, 194, 194) 77% , rgba(234,246,244,1) 77%);
   padding: 10px;
   box-shadow: 0 0 5px 1px #282c3442;
+  box-sizing: border-box;
 }
 
 .personImg{
@@ -91,4 +91,9 @@ img{
   margin-top: 3rem;
   display: flex;
   justify-content: space-around;
+}
+
+.table{
+  text-align: left;
+  font-size: 11px;
 }
