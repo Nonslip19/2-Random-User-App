@@ -12,13 +12,14 @@ import growingMan from "../assets/growing-up-man.svg";
 import growingWoman from "../assets/growing-up-woman.svg";
 import Tables from './Tables';
 
-let addUser = [];
+
 const Card = () => {
 
     const api = "https://randomuser.me/api/";
     const [user, setUser] = useState([]);
     const [userTitle, setUserTitle] = useState("My Name Is");
     const [userInfo, setUserInfo] = useState("");
+    const [addUser, setAddUser] = useState([]);
 
     const userData = async() => {const dataFirst = await axios(api).then(res => (res.data.results[0]))
         .catch((err) => console.log(err));   
@@ -42,9 +43,12 @@ const Card = () => {
         setUserInfo(title+" "+first+" "+last);
     };
     const{title, first, last, age, city, country, phone, large, email, gender, password} = user;
-    console.log(title);
 
     useEffect(() => userData(), []);
+
+    const buttonFunk = () => {
+        addUser.includes(user) ? alert("you have already added the same user.") : setAddUser([...addUser, user]);
+        };
  
 
    console.log(addUser);
@@ -91,11 +95,7 @@ const Card = () => {
             </div>
             <div className='buttons'>
                 <button onClick={userData}>NEW USER</button>
-                <button onClick={() => {
-                addUser = addUser.concat(user);
-                setUserTitle("My Name Is");
-                setUserInfo(title+" "+first+" "+last);
-                }}>ADD USER</button>
+                <button onClick={buttonFunk}>ADD USER</button>
             </div> <br />
             <Tables addUser = {addUser} />
     

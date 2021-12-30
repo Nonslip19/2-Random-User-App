@@ -39,7 +39,7 @@
 
 .card-container{
   width: 500px;
-  background: linear-gradient(0deg, rgb(255, 255, 255) 76%,  rgb(212, 194, 194) 77% , rgba(234,246,244,1) 77%);
+  background: linear-gradient(0deg, rgb(255, 255, 255) 79%,  rgb(212, 194, 194) 80% , rgba(234,246,244,1) 80%);
   padding: 10px;
   box-shadow: 0 0 5px 1px #282c3442;
   box-sizing: border-box;
@@ -96,4 +96,8 @@ img{
 .table{
   text-align: left;
   font-size: 11px;
+}
+
+thead{
+  background-color: rgba(253,187,45,0.9);
 }

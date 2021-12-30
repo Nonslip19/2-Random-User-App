@@ -4,9 +4,11 @@ import UserTable from './UserTable';
 
 
 const Tables = ({addUser}) => {
+    console.log(addUser);
     return (
         <div>
-            <Table striped bordered hover className='table'>
+        {
+            addUser.length > 0  ? ( <Table striped bordered hover className='table'>
             <thead>
                 <tr>
                 <th>First Name</th>
@@ -16,7 +18,9 @@ const Tables = ({addUser}) => {
                 </tr>
             </thead>
             <UserTable addUser = {addUser} />
-        </Table>
+        </Table>) : null
+        } 
+            
         </div>
     );
 };

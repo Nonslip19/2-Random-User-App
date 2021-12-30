@@ -6,13 +6,13 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  height: 100vh;
   background: linear-gradient(0deg, rgba(234,246,244,1) 60%, rgba(253,187,45,0.9054972330729166) 60%);
   
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-
+  background-repeat: no-repeat;
 }
 
 code {

@@ -12,7 +12,6 @@ const UserTable = ({addUser}) => {
             <td>{user.age}</td>
             </tr>
             ))}
-           
         </tbody>
     )
 }
