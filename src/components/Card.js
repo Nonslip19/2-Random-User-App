@@ -39,6 +39,7 @@ const Card = () => {
             title, first, last, age, city, country, phone, large, email, gender, password 
         });
 
+        
         setUserTitle("My Name Is");
         setUserInfo(title+" "+first+" "+last);
     };
